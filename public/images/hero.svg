@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F3F4F6"/>
+  <g transform="translate(200, 150)">
+    <!-- Car Body -->
+    <path d="M400 200C400 89.543 310.457 0 200 0C89.543 0 0 89.543 0 200C0 310.457 89.543 400 200 400C310.457 400 400 310.457 400 200Z" fill="#E5E7EB"/>
+    <path d="M350 200C350 116.863 283.137 50 200 50C116.863 50 50 116.863 50 200C50 283.137 116.863 350 200 350C283.137 350 350 283.137 350 200Z" fill="#D1D5DB"/>
+    
+    <!-- Windows -->
+    <path d="M250 150C250 127.909 227.091 110 200 110C172.909 110 150 127.909 150 150V250C150 272.091 172.909 290 200 290C227.091 290 250 272.091 250 250V150Z" fill="#9CA3AF"/>
+    
+    <!-- Wheels -->
+    <circle cx="120" cy="280" r="40" fill="#4B5563"/>
+    <circle cx="280" cy="280" r="40" fill="#4B5563"/>
+    <circle cx="120" cy="280" r="20" fill="#1F2937"/>
+    <circle cx="280" cy="280" r="20" fill="#1F2937"/>
+    
+    <!-- Headlights -->
+    <circle cx="80" cy="200" r="15" fill="#FCD34D"/>
+    <circle cx="320" cy="200" r="15" fill="#FCD34D"/>
+    
+    <!-- Decorative Elements -->
+    <path d="M200 50L220 100L180 100L200 50Z" fill="#EF4444"/>
+    <path d="M200 350L220 300L180 300L200 350Z" fill="#EF4444"/>
+  </g>
+  
+  <!-- Background Elements -->
+  <circle cx="100" cy="100" r="50" fill="#2563EB" fill-opacity="0.1"/>
+  <circle cx="700" cy="500" r="70" fill="#2563EB" fill-opacity="0.1"/>
+  <circle cx="600" cy="100" r="30" fill="#2563EB" fill-opacity="0.1"/>
+  <circle cx="100" cy="500" r="40" fill="#2563EB" fill-opacity="0.1"/>
+</svg> 
