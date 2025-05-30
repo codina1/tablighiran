@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ChartBarIcon,
@@ -9,6 +10,9 @@ import {
   EyeIcon,
   MapPinIcon,
   DocumentTextIcon,
+  ArrowLeftIcon,
+  CalendarIcon,
+  BanknotesIcon
 } from '@heroicons/react/24/outline';
 
 // تایپ‌های مورد نیاز

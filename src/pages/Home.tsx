@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
@@ -8,7 +9,10 @@ import {
   ArrowRightIcon,
   CheckCircleIcon,
   SparklesIcon,
+  MapPinIcon,
+  BanknotesIcon,
 } from '@heroicons/react/24/outline';
+import HeroSlider from '../components/HeroSlider';
 
 const features = [
   {

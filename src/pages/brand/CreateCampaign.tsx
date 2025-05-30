@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  ArrowLeftIcon,
-  MapPinIcon,
-  TruckIcon,
-  CalendarIcon,
-  BanknotesIcon,
-  PhotoIcon,
+import { useForm } from 'react-hook-form';
+import { motion } from 'framer-motion';
+import { 
   DocumentTextIcon,
+  BanknotesIcon,
+  CalendarIcon,
+  TruckIcon,
+  MapPinIcon,
+  ArrowLeftIcon
 } from '@heroicons/react/24/outline';
 
 interface CampaignForm {
@@ -35,8 +35,10 @@ interface CampaignFormErrors {
   terms?: string;
 }
 
-const CreateCampaign: React.FC = () => {
+const CreateCampaign = () => {
   const navigate = useNavigate();
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<CampaignForm>({
     title: '',
@@ -87,12 +89,16 @@ const CreateCampaign: React.FC = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateStep()) {
-      // TODO: ارسال اطلاعات به سرور
-      console.log('Form submitted:', formData);
+  const onSubmit = async (data: any) => {
+    setIsLoading(true);
+    try {
+      // API call logic here
+      console.log('Campaign data:', data);
       navigate('/brand/dashboard');
+    } catch (error) {
+      console.error('Error creating campaign:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -153,7 +159,7 @@ const CreateCampaign: React.FC = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Step 1: Basic Information */}
               {step === 1 && (
                 <motion.div
