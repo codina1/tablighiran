@@ -1,18 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  ChartBarIcon,
   TruckIcon,
   CheckCircleIcon,
   XCircleIcon,
   PencilIcon,
   EyeIcon,
-  MapPinIcon,
-  DocumentTextIcon,
-  ArrowLeftIcon,
-  CalendarIcon,
-  BanknotesIcon
+  MapPinIcon
 } from '@heroicons/react/24/outline';
 
 // تایپ‌های مورد نیاز
@@ -221,25 +215,25 @@ export default function CampaignDetails() {
           <StatCard
             title="رانندگان فعال"
             value={sampleStats.activeDrivers}
-            icon={<TruckIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />}
+            icon={TruckIcon}
             color="bg-blue-500"
           />
           <StatCard
             title="بازدید کل"
             value={sampleStats.totalViews.toLocaleString()}
-            icon={<EyeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />}
+            icon={EyeIcon}
             color="bg-green-500"
           />
           <StatCard
             title="شهرهای هدف"
             value={sampleCampaign.cities.length}
-            icon={<MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />}
+            icon={MapPinIcon}
             color="bg-yellow-500"
           />
           <StatCard
             title="نوع خودروها"
             value={sampleCampaign.vehicleTypes.length}
-            icon={<TruckIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />}
+            icon={TruckIcon}
             color="bg-purple-500"
           />
         </div>
@@ -256,7 +250,6 @@ export default function CampaignDetails() {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                <DocumentTextIcon className="h-5 w-5 ml-2 inline-block" />
                 اطلاعات کلی
               </button>
               <button
@@ -267,7 +260,6 @@ export default function CampaignDetails() {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                <TruckIcon className="h-5 w-5 ml-2 inline-block" />
                 رانندگان
               </button>
               <button
@@ -278,21 +270,13 @@ export default function CampaignDetails() {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                <ChartBarIcon className="h-5 w-5 ml-2 inline-block" />
                 آمار و تحلیل
               </button>
             </nav>
           </div>
-
-          {/* Content */}
           <div className="p-4 sm:p-6">
             {activeTab === 'overview' && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-6"
-              >
+              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">اطلاعات کمپین</h3>
@@ -311,52 +295,34 @@ export default function CampaignDetails() {
                       </div>
                       <div>
                         <dt className="text-sm font-medium text-gray-500">بازه زمانی</dt>
-                        <dd className="mt-1 text-sm text-gray-900">
-                          {sampleCampaign.startDate} تا {sampleCampaign.endDate}
-                        </dd>
+                        <dd className="mt-1 text-sm text-gray-900">{sampleCampaign.startDate} تا {sampleCampaign.endDate}</dd>
                       </div>
                     </dl>
                   </div>
-
                   <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">محدوده فعالیت</h3>
                     <dl className="space-y-4">
                       <div>
                         <dt className="text-sm font-medium text-gray-500">شهرها</dt>
-                        <dd className="mt-1 text-sm text-gray-900">
-                          {sampleCampaign.cities.join('، ')}
-                        </dd>
+                        <dd className="mt-1 text-sm text-gray-900">{sampleCampaign.cities.join('، ')}</dd>
                       </div>
                       <div>
                         <dt className="text-sm font-medium text-gray-500">نوع خودروها</dt>
-                        <dd className="mt-1 text-sm text-gray-900">
-                          {sampleCampaign.vehicleTypes.join('، ')}
-                        </dd>
+                        <dd className="mt-1 text-sm text-gray-900">{sampleCampaign.vehicleTypes.join('، ')}</dd>
                       </div>
                     </dl>
                   </div>
                 </div>
-
                 <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                   <h3 className="text-lg font-medium text-gray-900 mb-4">تصویر تبلیغات</h3>
                   <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      src={sampleCampaign.designUrl}
-                      alt={sampleCampaign.title}
-                      className="object-cover rounded-lg"
-                    />
+                    <img src={sampleCampaign.designUrl} alt={sampleCampaign.title} className="object-cover rounded-lg" />
                   </div>
                 </div>
               </motion.div>
             )}
-
             {activeTab === 'drivers' && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-6"
-              >
+              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {sampleDrivers.map((driver) => (
                     <DriverCard key={driver.id} driver={driver} />
@@ -364,14 +330,8 @@ export default function CampaignDetails() {
                 </div>
               </motion.div>
             )}
-
             {activeTab === 'analytics' && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-6"
-              >
+              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">آمار کلی</h3>
@@ -390,7 +350,6 @@ export default function CampaignDetails() {
                       </div>
                     </dl>
                   </div>
-
                   <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">آمار به تفکیک شهر</h3>
                     <dl className="space-y-4">
@@ -410,4 +369,4 @@ export default function CampaignDetails() {
       </div>
     </div>
   );
-} 
+}

@@ -2,16 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
-import { 
-  DocumentTextIcon,
-  BanknotesIcon,
-  CalendarIcon,
-  TruckIcon,
-  MapPinIcon,
-  ArrowLeftIcon
-} from '@heroicons/react/24/outline';
+import { PhotoIcon } from '@heroicons/react/24/outline';
 
-interface CampaignForm {
+interface CampaignFormData {
   title: string;
   description: string;
   budget: number;
@@ -37,10 +30,9 @@ interface CampaignFormErrors {
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm();
-  const [isLoading, setIsLoading] = useState(false);
+  const { handleSubmit } = useForm();
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<CampaignForm>({
+  const [formData, setFormData] = useState<CampaignFormData>({
     title: '',
     description: '',
     budget: 0,
@@ -51,8 +43,6 @@ const CreateCampaign = () => {
     adImage: null,
     terms: '',
   });
-
-  const [errors, setErrors] = useState<CampaignFormErrors>({});
 
   const validateStep = (): boolean => {
     const newErrors: CampaignFormErrors = {};
@@ -75,7 +65,6 @@ const CreateCampaign = () => {
       if (!formData.terms) newErrors.terms = 'شرایط همکاری الزامی است';
     }
 
-    setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -90,15 +79,12 @@ const CreateCampaign = () => {
   };
 
   const onSubmit = async (data: any) => {
-    setIsLoading(true);
     try {
-      // API call logic here
       console.log('Campaign data:', data);
+      // TODO: Implement API call
       navigate('/brand/dashboard');
     } catch (error) {
       console.error('Error creating campaign:', error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
